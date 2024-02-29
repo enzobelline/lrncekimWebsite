@@ -5,6 +5,8 @@
 
 Welcome to the GitHub repository for Laurence Kim's personal portfolio website. This site is a comprehensive showcase of Laurence's journey and achievements in the field of Machine Learning and Software Engineering. Built with a keen eye for detail, the website highlights Laurence's education, work experience, projects, skills, and provides a direct channel for contact.
 
+[lrncekim](https://lrncekim.com/)
+
 ## Features
 
 ### Responsive Design
