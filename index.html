@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lrncekim</title>
+    <link rel="icon" href="./assets/tiger.png" type="image/gif">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <div class="music-player-wrapper">
+      <div class="vibe-hint" id="vibe-hint">
+        <span>vibe activation here</span>
+        <span class="vibe-arrow">&rarr;</span>
+      </div>
+      <div class="music-player" id="music-player">
+      <button class="music-btn" id="play-btn" onclick="togglePlay()">&#9654;</button>
+      <div class="music-title-wrapper">
+        <span class="music-title" id="music-title">Milky, Mall Grab — Just The Way You Are&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Milky, Mall Grab — Just The Way You Are&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+      <div class="music-controls">
+        <div class="music-control-row">
+          <span class="music-label music-time" id="music-time">0:00</span>
+          <div class="music-progress" id="music-progress" onclick="seek(event)">
+            <div class="music-progress-bar" id="music-progress-bar"></div>
+          </div>
+        </div>
+        <div class="music-control-row">
+          <span class="music-label">🔊</span>
+          <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="20" oninput="setVolume(this.value)">
+        </div>
+      </div>
+    </div>
+    </div>
+    <audio id="audio" src="./assets/Milky, Mall Grab - Just The Way You Are (Extended).mp3" preload="metadata"></audio>
+    <nav id="desktop-nav">
+      <div class="logo">Laurence Kim</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#education">Education</a></li>
+          <li><a href="#work_experience">Work Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Laurence Kim</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#education" onclick="toggleMenu()">Education</a></li>
+          <li><a href="#work_experience" onclick="toggleMenu()">Work Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/pp.png" alt="Laurence profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Laurence Kim</h1>
+        <p class="section__text__p2">AI Solutions Architect</p>
+        <p class="section__text__location">San Francisco, CA</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/LAURENCE_KIM_MLRESUME_ONEPAGE.pdf')"
+          >
+            Resume
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="window.open('https://www.linkedin.com/in/lrncekim/', '_blank')"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="window.open('https://github.com/enzobelline', '_blank')"
+          />
+          <img
+          src="./assets/arrow.png"
+          alt="Arrow icon"
+          class="icon arrow"
+          onclick="location.href='#education'"
+        />
+        </div>
+      </div>
+    </section>
+    <section id="education">
+      <h1 class="title">Education</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/scu_logo.png"
+            alt="Santa Clara University logo"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <h3 class="edu-degree">M.S. Electrical and Computer Engineering</h3>
+              <p class="edu-school">Santa Clara University</p>
+              <p class="edu-focus">Focus: Digital Systems / Machine Learning</p>
+            </div>
+            <div class="details-container">
+              <h3 class="edu-degree">B.S. Electrical and Computer Engineering</h3>
+              <p class="edu-school">Santa Clara University</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Relevant Coursework: Distributed Systems, Machine Learning, Deep Learning,
+              Natural Language Processing, Pattern Recognition &amp; Data Mining,
+              Design and Analysis of Algorithms, Advanced Computer Architecture,
+              Operating Systems, Computer Networks
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='#work_experience'"
+      />
+    </section>
+    <section id="work_experience">
+      <h1 class="title">Work Experience</h1>
+      <div class="about-details-container">
+        <div class="about-containers">
+          <div class="details-container work-card">
+            <h3 class="work-company">Omnicom (Octagon)</h3>
+            <p class="work-role">Lead AI Solutions Architect</p>
+            <p class="work-timeline">Oct 2025 - Present</p>
+            <p class="work-location">San Francisco, CA</p>
+          </div>
+          <div class="details-container work-card">
+            <h3 class="work-company">Santa Clara University</h3>
+            <p class="work-role">AI Graduate Research Assistant &amp; TA</p>
+            <p class="work-timeline">Aug 2022 - Mar 2025</p>
+            <p class="work-location">Santa Clara, CA</p>
+          </div>
+          <div class="details-container work-card">
+            <h3 class="work-company">AMD</h3>
+            <p class="work-role">Software Applications Engineer HPC/ML</p>
+            <p class="work-timeline">Mar 2022 - Dec 2022</p>
+            <p class="work-location">Santa Clara, CA</p>
+          </div>
+          <div class="details-container work-card">
+            <h3 class="work-company">Renesas</h3>
+            <p class="work-role">Product Development Engineer</p>
+            <p class="work-timeline">Jun 2021 - Jan 2022</p>
+            <p class="work-location">Santa Clara, CA</p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='#projects'"
+      />
+    </section>
+
+    <section id="projects">
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="project-img-container">
+              <img
+                src="./assets/agentpulse.png"
+                alt="AgentPulse"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">AgentPulse</h2>
+            <p class="project-description">Native macOS menubar app monitoring Claude Code sessions in real time via multi-process hook architecture with TTY device matching, live activity tracking, and smart notifications.</p>
+            <div class="btn-container">
+              <img
+                src="./assets/github.png"
+                alt="GitHub"
+                class="icon project-github-icon"
+                onclick="window.open('https://github.com/enzobelline/agentpulse', '_blank')"
+              />
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="project-img-container">
+              <img
+                src="./assets/garret_wilson.jpg"
+                alt="SpiralSight"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">SpiralSight</h2>
+            <p class="project-description">AI-driven NFL player projection platform with 593% betting strategy return. 1M+ data points, 17 position-specific XGBoost models, Neo4j graph analytics, and a React/Tailwind dashboard.</p>
+            <div class="btn-container">
+              <img
+                src="./assets/github.png"
+                alt="GitHub"
+                class="icon project-github-icon"
+                onclick="window.open('https://github.com/enzobelline/nfl_player_projections', '_blank')"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+      src="./assets/arrow.png"
+      alt="Arrow icon"
+      class="icon arrow"
+      onclick="location.href='#skills'"
+      />
+
+    </section>
+    <section id="skills">
+      <h1 class="title">Skills</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Languages</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Python</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>C++</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>SQL</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>JavaScript</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>React</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>HTML/CSS</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Verilog</h3></div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frameworks / Libraries</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>PyTorch</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>TensorFlow</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>HuggingFace</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Scikit-learn</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Pandas</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>REST / gRPC</h3></div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">DevOps / Cloud</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>GCP</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>AWS</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Azure</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Docker</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Kubernetes</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Jenkins CI/CD</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Git</h3></div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">AI / LLM</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Claude API</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>OpenAI API</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>Gemini</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>n8n</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>RAG / Vector DB</h3></div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+                <div><h3>LLM-as-Judge</h3></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+      src="./assets/arrow.png"
+      alt="Arrow icon"
+      class="icon arrow"
+      onclick="location.href='#contact'"
+      />
+
+    </section>
+    <section id="contact">
+      <h1 class="title">Contact</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/lrncekim/" target="_blank">LinkedIn</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/github.png"
+            alt="GitHub icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://github.com/enzobelline" target="_blank">GitHub</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:lkimcareer@gmail.com">lkimcareer@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2026 Laurence Kim</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
