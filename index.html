@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
+    <div class="custom-cursor" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="theme-toggle" id="dark-mode-toggle" onclick="toggleDarkMode()">
+      <svg class="toggle-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <div class="toggle-track">
+        <div class="toggle-thumb"></div>
+      </div>
+      <svg class="toggle-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </div>
     <div class="music-player-wrapper">
       <div class="vibe-hint" id="vibe-hint">
         <span>vibe activation here</span>
@@ -41,9 +54,9 @@
       <div class="logo">Laurence Kim</div>
       <div>
         <ul class="nav-links">
-          <li><a href="#education">Education</a></li>
-          <li><a href="#work_experience">Work Experience</a></li>
+          <li><a href="#work_experience">Work</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -58,9 +71,9 @@
           <span></span>
         </div>
         <div class="menu-links">
-          <li><a href="#education" onclick="toggleMenu()">Education</a></li>
-          <li><a href="#work_experience" onclick="toggleMenu()">Work Experience</a></li>
+          <li><a href="#work_experience" onclick="toggleMenu()">Work</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#education" onclick="toggleMenu()">Education</a></li>
           <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
@@ -106,40 +119,7 @@
         </div>
       </div>
     </section>
-    <section id="education" class="section-fit">
-      <h1 class="title">Education</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/scu_logo.png"
-            alt="Santa Clara University logo"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <h3 class="edu-degree">M.S. Electrical and Computer Engineering</h3>
-              <p class="edu-school">Santa Clara University</p>
-              <p class="edu-focus">Focus: Digital Systems / Machine Learning</p>
-            </div>
-            <div class="details-container">
-              <h3 class="edu-degree">B.S. Electrical and Computer Engineering</h3>
-              <p class="edu-school">Santa Clara University</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              Relevant Coursework: Distributed Systems, Machine Learning, Deep Learning,
-              Natural Language Processing, Pattern Recognition &amp; Data Mining,
-              Design and Analysis of Algorithms, Advanced Computer Architecture,
-              Operating Systems, Computer Networks
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="work_experience" class="section-fit">
+    <section id="work_experience" class="section-fit fade-in">
       <h1 class="title">Work Experience</h1>
       <div class="about-details-container">
         <div class="about-containers">
@@ -171,7 +151,7 @@
       </div>
     </section>
 
-    <section id="projects" class="section-fit">
+    <section id="projects" class="section-fit fade-in">
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
         <div class="about-containers">
@@ -217,15 +197,48 @@
       </div>
 
     </section>
-    <section id="skills" class="section-fit">
+    <section id="education" class="section-fit fade-in">
+      <h1 class="title">Education</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/scu_logo.png"
+            alt="Santa Clara University logo"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <h3 class="edu-degree">M.S. Electrical and Computer Engineering</h3>
+              <p class="edu-school">Santa Clara University</p>
+              <p class="edu-focus">Focus: Digital Systems / Machine Learning</p>
+            </div>
+            <div class="details-container">
+              <h3 class="edu-degree">B.S. Electrical and Computer Engineering</h3>
+              <p class="edu-school">Santa Clara University</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Relevant Coursework: Distributed Systems, Machine Learning, Deep Learning,
+              Natural Language Processing, Pattern Recognition &amp; Data Mining,
+              Design and Analysis of Algorithms, Advanced Computer Architecture,
+              Operating Systems, Computer Networks
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="section-fit fade-in">
       <h1 class="title">Skills</h1>
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container">
             <h2 class="experience-sub-title">Languages</h2>
             <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <article class="skill-accent">
+                <img src="./assets/checkmark_brown.png" alt="Skill icon" class="icon skill-check-light" /><img src="./assets/checkmark_brown_dark.png" alt="Skill icon" class="icon skill-check-dark" />
                 <div><h3>Python</h3></div>
               </article>
               <article>
@@ -288,17 +301,17 @@
           <div class="details-container">
             <h2 class="experience-sub-title">DevOps / Cloud</h2>
             <div class="article-container">
+              <article class="skill-accent">
+                <img src="./assets/checkmark_brown.png" alt="Skill icon" class="icon skill-check-light" /><img src="./assets/checkmark_brown_dark.png" alt="Skill icon" class="icon skill-check-dark" />
+                <div><h3>AWS</h3></div>
+              </article>
+              <article class="skill-accent">
+                <img src="./assets/checkmark_brown.png" alt="Skill icon" class="icon skill-check-light" /><img src="./assets/checkmark_brown_dark.png" alt="Skill icon" class="icon skill-check-dark" />
+                <div><h3>Azure</h3></div>
+              </article>
               <article>
                 <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
                 <div><h3>GCP</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
-                <div><h3>AWS</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
-                <div><h3>Azure</h3></div>
               </article>
               <article>
                 <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
@@ -312,15 +325,19 @@
                 <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
                 <div><h3>Jenkins CI/CD</h3></div>
               </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
-                <div><h3>Git</h3></div>
-              </article>
             </div>
           </div>
           <div class="details-container">
             <h2 class="experience-sub-title">AI / LLM</h2>
             <div class="article-container">
+              <article class="skill-accent">
+                <img src="./assets/checkmark_brown.png" alt="Skill icon" class="icon skill-check-light" /><img src="./assets/checkmark_brown_dark.png" alt="Skill icon" class="icon skill-check-dark" />
+                <div><h3>n8n</h3></div>
+              </article>
+              <article class="skill-accent">
+                <img src="./assets/checkmark_brown.png" alt="Skill icon" class="icon skill-check-light" /><img src="./assets/checkmark_brown_dark.png" alt="Skill icon" class="icon skill-check-dark" />
+                <div><h3>RAG / Vector DB</h3></div>
+              </article>
               <article>
                 <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
                 <div><h3>Claude API</h3></div>
@@ -335,14 +352,6 @@
               </article>
               <article>
                 <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
-                <div><h3>n8n</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
-                <div><h3>RAG / Vector DB</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
                 <div><h3>LLM-as-Judge</h3></div>
               </article>
             </div>
@@ -351,7 +360,7 @@
       </div>
 
     </section>
-    <section id="contact" class="section-fit">
+    <section id="contact" class="section-fit fade-in">
       <h1 class="title">Contact</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">

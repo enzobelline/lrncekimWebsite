@@ -29,6 +29,71 @@ async function checkResumePassword() {
   }
 }
 
+// Dark mode
+function toggleDarkMode() {
+  const html = document.documentElement;
+  if (html.getAttribute("data-theme") === "dark") {
+    html.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+  } else {
+    html.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+// Detect system preference or saved preference
+(function() {
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+})();
+
+// Custom cursor (desktop only)
+const cursorDot = document.getElementById("cursor-dot");
+const cursorRing = document.getElementById("cursor-ring");
+const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+if (isTouchDevice) {
+  cursorDot.style.display = "none";
+  cursorRing.style.display = "none";
+  document.documentElement.style.cursor = "auto";
+} else {
+  document.addEventListener("mousemove", (e) => {
+    cursorDot.style.left = e.clientX - 4 + "px";
+    cursorDot.style.top = e.clientY - 4 + "px";
+    cursorRing.style.left = e.clientX - 16 + "px";
+    cursorRing.style.top = e.clientY - 16 + "px";
+  });
+
+  document.addEventListener("mouseenter", () => {
+    cursorDot.style.opacity = "1";
+    cursorRing.style.opacity = "0.5";
+  });
+
+  document.addEventListener("mouseleave", () => {
+    cursorDot.style.opacity = "0";
+    cursorRing.style.opacity = "0";
+  });
+
+  document.querySelectorAll("a, button, .icon, .btn, .music-btn, .hamburger-icon, input, .dark-mode-toggle").forEach(el => {
+    el.addEventListener("mouseenter", () => cursorRing.classList.add("hover"));
+    el.addEventListener("mouseleave", () => cursorRing.classList.remove("hover"));
+  });
+}
+
+// Scroll animations
+const fadeElements = document.querySelectorAll(".fade-in");
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.1 });
+
+fadeElements.forEach(el => fadeObserver.observe(el));
+
 function copyEmail() {
   navigator.clipboard.writeText("lkimcareer@gmail.com");
   const tooltip = document.getElementById("copied-tooltip");
@@ -106,11 +171,13 @@ function togglePlay() {
   if (audio.paused) {
     audio.play();
     playBtn.innerHTML = "&#9646;&#9646;";
+    playBtn.classList.add("playing");
     hasPlayedOnce = true;
     showGif(true);
   } else {
     audio.pause();
     playBtn.innerHTML = "&#9654;";
+    playBtn.classList.remove("playing");
     showGif(false);
   }
 }
@@ -135,6 +202,7 @@ audio.addEventListener("timeupdate", () => {
 
 audio.addEventListener("ended", () => {
   playBtn.innerHTML = "&#9654;";
+  playBtn.classList.remove("playing");
   progressBar.style.width = "0%";
   musicTime.textContent = "0:00";
   showGif(false);
