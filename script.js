@@ -82,6 +82,23 @@ if (isTouchDevice) {
   });
 }
 
+// Typing animation
+(function() {
+  const text = "Hello, I'm";
+  const el = document.getElementById("typing-text");
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 80);
+    } else {
+      el.classList.add("done");
+    }
+  }
+  setTimeout(type, 500);
+})();
+
 // Scroll animations
 const fadeElements = document.querySelectorAll(".fade-in");
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -97,6 +114,13 @@ fadeElements.forEach(el => fadeObserver.observe(el));
 function copyEmail() {
   navigator.clipboard.writeText("lkimcareer@gmail.com");
   const tooltip = document.getElementById("copied-tooltip");
+  tooltip.classList.add("show");
+  setTimeout(() => tooltip.classList.remove("show"), 1500);
+}
+
+function copyEmailContact() {
+  navigator.clipboard.writeText("lkimcareer@gmail.com");
+  const tooltip = document.getElementById("copied-tooltip-contact");
   tooltip.classList.add("show");
   setTimeout(() => tooltip.classList.remove("show"), 1500);
 }

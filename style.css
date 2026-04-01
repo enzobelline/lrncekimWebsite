@@ -657,6 +657,12 @@ section {
   opacity: 1;
 }
 
+.copied-tooltip-bottom {
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* ICONS */
 
 .icon {
@@ -1066,12 +1072,79 @@ article.skill-accent .icon {
   min-height: 1.2rem;
 }
 
+/* TYPING ANIMATION */
+
+.typing {
+  border-right: 2px solid var(--accent-navy);
+  display: inline-block;
+  animation: blink 0.7s step-end infinite;
+}
+
+.typing.done {
+  border-right: none;
+  animation: none;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* CURRENTLY BLURB */
+
+.currently {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* WORK HIGHLIGHTS */
+
+.work-highlight {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* TECH PILLS */
+
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.pill {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  background: var(--accent-navy);
+  color: white;
+  font-weight: 500;
+}
+
 /* FOOTER SECTION */
 
 footer {
   height: auto;
-  padding: 2rem 1rem;
+  padding: 0 1rem 2rem;
   margin: 0;
+}
+
+.footer-wave {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 1.5rem;
+}
+
+.footer-wave svg {
+  width: 100%;
+  height: 40px;
 }
 
 footer p {

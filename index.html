@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lrncekim</title>
+    <title>Laurence Kim | AI Solutions Architect</title>
+    <meta name="description" content="Laurence Kim — AI Solutions Architect in San Francisco. Building AI platforms, agentic orchestration, and ML systems." />
+    <meta property="og:title" content="Laurence Kim | AI Solutions Architect" />
+    <meta property="og:description" content="Building AI platforms, agentic orchestration, and ML systems in San Francisco." />
+    <meta property="og:image" content="https://lrncekim.com/assets/pp.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Laurence Kim | AI Solutions Architect" />
+    <meta name="twitter:description" content="Building AI platforms, agentic orchestration, and ML systems in San Francisco." />
+    <meta name="twitter:image" content="https://lrncekim.com/assets/pp.png" />
     <link rel="icon" href="./assets/tiger.png" type="image/gif">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
@@ -84,7 +93,7 @@
         <img src="./assets/pp.png" alt="Laurence profile picture" />
       </div>
       <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
+        <p class="section__text__p1 typing" id="typing-text"></p>
         <h1 class="title">Laurence Kim</h1>
         <p class="section__text__p2">AI Solutions Architect</p>
         <p class="section__text__location">San Francisco, CA</p>
@@ -117,6 +126,7 @@
             onclick="openResumeModal()"
           />
         </div>
+        <p class="currently">Currently leading AI platforms at Omnicom &amp; tinkering with agentic tools</p>
       </div>
     </section>
     <section id="work_experience" class="section-fit fade-in">
@@ -128,24 +138,28 @@
             <p class="work-role">Lead AI Solutions Architect</p>
             <p class="work-timeline">Oct 2025 - Present</p>
             <p class="work-location">San Francisco, CA</p>
+            <p class="work-highlight">Shipping modular AI platform spanning sponsorship intelligence, forecasting, and analytics with multi-LLM agentic orchestration.</p>
           </div>
           <div class="details-container work-card">
             <h3 class="work-company">Santa Clara University</h3>
             <p class="work-role">Graduate AI Research Assistant &amp; TA</p>
             <p class="work-timeline">Aug 2022 - Mar 2025</p>
             <p class="work-location">Santa Clara, CA</p>
+            <p class="work-highlight">Engineered CNN hardware on PYNQ-Z2 with 70% less latency. Optimized Llama2 &amp; Mistral with 30% memory reduction.</p>
           </div>
           <div class="details-container work-card">
             <h3 class="work-company">AMD</h3>
             <p class="work-role">Software Applications Engineer HPC/ML</p>
             <p class="work-timeline">Mar 2022 - Dec 2022</p>
             <p class="work-location">Santa Clara, CA</p>
+            <p class="work-highlight">Cut support tickets 42% with Python automation. Doubled scalability via Docker/Kubernetes migration.</p>
           </div>
           <div class="details-container work-card">
             <h3 class="work-company">Renesas</h3>
             <p class="work-role">Product Development Engineer</p>
             <p class="work-timeline">Jun 2021 - Jan 2022</p>
             <p class="work-location">Santa Clara, CA</p>
+            <p class="work-highlight">Solo-engineered wireless charging Smart Glasses prototype showcased at CES 2022, generating leads from Snapchat &amp; Meta.</p>
           </div>
         </div>
       </div>
@@ -164,6 +178,11 @@
               />
             </div>
             <h2 class="experience-sub-title project-title">AgentPulse</h2>
+            <div class="tech-pills">
+              <span class="pill">Swift</span>
+              <span class="pill">Python</span>
+              <span class="pill">Claude CLI</span>
+            </div>
             <p class="project-description">Native macOS menubar app monitoring Claude Code sessions in real time via multi-process hook architecture with TTY device matching, live activity tracking, and smart notifications.</p>
             <div class="btn-container">
               <img
@@ -183,6 +202,13 @@
               />
             </div>
             <h2 class="experience-sub-title project-title">SpiralSight</h2>
+            <div class="tech-pills">
+              <span class="pill">Python</span>
+              <span class="pill">SQLite</span>
+              <span class="pill">Neo4j</span>
+              <span class="pill">React</span>
+              <span class="pill">XGBoost</span>
+            </div>
             <p class="project-description">AI-driven NFL player projection platform with 593% betting strategy return. 1M+ data points, 17 position-specific XGBoost models, Neo4j graph analytics, and a React/Tailwind dashboard.</p>
             <div class="btn-container">
               <img
@@ -383,19 +409,23 @@
           </a>
           <p><a href="https://github.com/enzobelline" target="_blank">GitHub</a></p>
         </div>
-        <div class="contact-info-container">
-          <a href="mailto:lkimcareer@gmail.com">
-            <img
-              src="./assets/email.png"
-              alt="Email icon"
-              class="icon contact-icon email-icon"
-            />
-          </a>
-          <p><a href="mailto:lkimcareer@gmail.com">lkimcareer@gmail.com</a></p>
+        <div class="contact-info-container copy-email-wrapper" onclick="copyEmailContact()" style="cursor:pointer;">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p>lkimcareer@gmail.com</p>
+          <span class="copied-tooltip copied-tooltip-bottom" id="copied-tooltip-contact">Copied!</span>
         </div>
       </div>
     </section>
     <footer>
+      <div class="footer-wave">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+          <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,20 1440,30 L1440,60 L0,60 Z" fill="var(--accent-navy)" opacity="0.1"/>
+        </svg>
+      </div>
       <p>&copy; 2026 Laurence Kim</p>
     </footer>
     <div class="resume-modal-overlay" id="resume-modal" onclick="closeResumeModal(event)">
