@@ -15,6 +15,8 @@
         <span>vibe activation here</span>
         <span class="vibe-arrow">&rarr;</span>
       </div>
+      <img src="./assets/bored_cat.gif" alt="bored cat" class="player-gif" id="player-gif-paused" style="display:none;" />
+      <img src="./assets/happy-happy-happy.gif" alt="vibing" class="player-gif" id="player-gif-playing" style="display:none;" />
       <div class="music-player" id="music-player">
       <button class="music-btn" id="play-btn" onclick="togglePlay()">&#9654;</button>
       <div class="music-title-wrapper">
@@ -73,17 +75,6 @@
         <h1 class="title">Laurence Kim</h1>
         <p class="section__text__p2">AI Solutions Architect</p>
         <p class="section__text__location">San Francisco, CA</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/LAURENCE_KIM_MLRESUME_ONEPAGE.pdf')"
-          >
-            Resume
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
-            Contact Info
-          </button>
-        </div>
         <div id="socials-container">
           <img
             src="./assets/linkedin.png"
@@ -97,16 +88,25 @@
             class="icon"
             onclick="window.open('https://github.com/enzobelline', '_blank')"
           />
+          <div class="copy-email-wrapper">
+            <img
+              src="./assets/email_icon.svg"
+              alt="Copy email"
+              class="icon socials-icon"
+              onclick="copyEmail()"
+            />
+            <span class="copied-tooltip" id="copied-tooltip">Copied!</span>
+          </div>
           <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='#education'"
-        />
+            src="./assets/resume_icon.svg"
+            alt="Resume"
+            class="icon socials-icon"
+            onclick="openResumeModal()"
+          />
         </div>
       </div>
     </section>
-    <section id="education">
+    <section id="education" class="section-fit">
       <h1 class="title">Education</h1>
       <div class="section-container">
         <div class="section__pic-container">
@@ -138,14 +138,8 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#work_experience'"
-      />
     </section>
-    <section id="work_experience">
+    <section id="work_experience" class="section-fit">
       <h1 class="title">Work Experience</h1>
       <div class="about-details-container">
         <div class="about-containers">
@@ -175,15 +169,9 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#projects'"
-      />
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section-fit">
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
         <div class="about-containers">
@@ -227,15 +215,9 @@
           </div>
         </div>
       </div>
-      <img
-      src="./assets/arrow.png"
-      alt="Arrow icon"
-      class="icon arrow"
-      onclick="location.href='#skills'"
-      />
 
     </section>
-    <section id="skills">
+    <section id="skills" class="section-fit">
       <h1 class="title">Skills</h1>
       <div class="experience-details-container">
         <div class="about-containers">
@@ -273,7 +255,7 @@
             </div>
           </div>
           <div class="details-container">
-            <h2 class="experience-sub-title">Frameworks / Libraries</h2>
+            <h2 class="experience-sub-title">Frameworks</h2>
             <div class="article-container">
               <article>
                 <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
@@ -367,39 +349,39 @@
           </div>
         </div>
       </div>
-      <img
-      src="./assets/arrow.png"
-      alt="Arrow icon"
-      class="icon arrow"
-      onclick="location.href='#contact'"
-      />
 
     </section>
-    <section id="contact">
+    <section id="contact" class="section-fit">
       <h1 class="title">Contact</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
+          <a href="https://www.linkedin.com/in/lrncekim/" target="_blank">
+            <img
+              src="./assets/linkedin.png"
+              alt="LinkedIn icon"
+              class="icon contact-icon"
+            />
+          </a>
           <p><a href="https://www.linkedin.com/in/lrncekim/" target="_blank">LinkedIn</a></p>
         </div>
         <div class="contact-info-container">
-          <img
-            src="./assets/github.png"
-            alt="GitHub icon"
-            class="icon contact-icon"
-          />
+          <a href="https://github.com/enzobelline" target="_blank">
+            <img
+              src="./assets/github.png"
+              alt="GitHub icon"
+              class="icon contact-icon"
+            />
+          </a>
           <p><a href="https://github.com/enzobelline" target="_blank">GitHub</a></p>
         </div>
         <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
+          <a href="mailto:lkimcareer@gmail.com">
+            <img
+              src="./assets/email.png"
+              alt="Email icon"
+              class="icon contact-icon email-icon"
+            />
+          </a>
           <p><a href="mailto:lkimcareer@gmail.com">lkimcareer@gmail.com</a></p>
         </div>
       </div>
@@ -407,6 +389,17 @@
     <footer>
       <p>&copy; 2026 Laurence Kim</p>
     </footer>
+    <div class="resume-modal-overlay" id="resume-modal" onclick="closeResumeModal(event)">
+      <div class="resume-modal">
+        <h3>Enter password to view resume</h3>
+        <input type="password" id="resume-password" placeholder="Password" onkeydown="if(event.key==='Enter')checkResumePassword()" />
+        <div class="resume-modal-btns">
+          <button onclick="checkResumePassword()">Submit</button>
+          <button onclick="closeResumeModal()">Cancel</button>
+        </div>
+        <p class="resume-error" id="resume-error"></p>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

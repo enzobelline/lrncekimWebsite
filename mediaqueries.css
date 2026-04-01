@@ -19,6 +19,10 @@
   #hamburger-nav {
     display: flex;
   }
+  nav::after {
+    height: 30px;
+    bottom: -30px;
+  }
   .music-player {
     padding: 0.3rem 0.6rem;
     gap: 0.4rem;
@@ -53,12 +57,16 @@
   .experience-details-container {
     margin-top: 2rem;
   }
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info-container {
+    margin: 0.3rem 0;
+  }
   #profile,
   .section-container {
     display: block;
-  }
-  .arrow {
-    display: none;
   }
   section,
   .section-container {
@@ -74,6 +82,14 @@
   }
   .about-containers {
     margin-top: 0;
+  }
+  .about-containers .details-container {
+    flex: 1 1 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .article-container {
+    width: 100%;
   }
 }
 
@@ -135,12 +151,15 @@
     margin-bottom: 2rem;
   }
   .about-containers,
-  .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
   }
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+  }
   .contact-info-container {
-    margin: 0;
+    margin: 0.3rem 0;
   }
   .contact-info-container p,
   .nav-links li a {

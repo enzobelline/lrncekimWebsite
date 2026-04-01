@@ -38,7 +38,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: auto;
-  padding: 3rem 0 1.5rem 0;
+  padding: 3rem 0 0.5rem 0;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -48,10 +48,10 @@ nav {
 nav::after {
   content: "";
   position: absolute;
-  bottom: -30px;
+  bottom: -50px;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 50px;
   background: linear-gradient(to bottom, white, transparent);
   pointer-events: none;
 }
@@ -84,6 +84,18 @@ a:hover {
 }
 
 /* VIBE HINT */
+
+.player-gif {
+  height: 2.5rem;
+  width: 2.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: opacity 0.5s ease;
+}
+
+.player-gif.fade-out {
+  opacity: 0;
+}
 
 .music-player-wrapper {
   position: fixed;
@@ -352,7 +364,12 @@ section {
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 7rem;
+}
+
+.section-fit {
+  height: fit-content;
+  padding-bottom: 6vh;
 }
 
 .section-container {
@@ -410,6 +427,40 @@ section {
   justify-content: center;
   margin-top: 1rem;
   gap: 1rem;
+}
+
+/* COPY EMAIL */
+
+.copy-email-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.socials-icon {
+  height: 2rem;
+  width: 2rem;
+  object-fit: contain;
+}
+
+.copied-tooltip {
+  position: absolute;
+  bottom: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(53, 53, 53);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.copied-tooltip.show {
+  opacity: 1;
 }
 
 /* ICONS */
@@ -493,11 +544,6 @@ section {
   border-radius: 2rem;
 }
 
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
 
 .details-container {
   padding: 1.5rem;
@@ -701,6 +747,94 @@ article .icon {
   text-align: center;
   font-size: 0.95rem;
   color: rgb(120, 120, 120);
+}
+
+/* RESUME MODAL */
+
+.resume-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-modal-overlay.open {
+  display: flex;
+}
+
+.resume-modal {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+}
+
+.resume-modal h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.resume-modal input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.resume-modal input:focus {
+  border-color: rgb(53, 53, 53);
+}
+
+.resume-modal-btns {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.resume-modal-btns button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid rgb(53, 53, 53);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.resume-modal-btns button:first-child {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.resume-modal-btns button:first-child:hover {
+  background: black;
+}
+
+.resume-modal-btns button:last-child {
+  background: white;
+}
+
+.resume-modal-btns button:last-child:hover {
+  background: rgb(240, 240, 240);
+}
+
+.resume-error {
+  color: rgb(200, 60, 60);
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  min-height: 1.2rem;
 }
 
 /* FOOTER SECTION */
