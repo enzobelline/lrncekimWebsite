@@ -12,9 +12,16 @@ function closeResumeModal(e) {
   }
 }
 
-function checkResumePassword() {
+async function hashPassword(pw) {
+  const encoded = new TextEncoder().encode(pw);
+  const hash = await crypto.subtle.digest("SHA-256", encoded);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function checkResumePassword() {
   const pw = document.getElementById("resume-password").value;
-  if (pw === "yourehired") {
+  const hash = await hashPassword(pw);
+  if (hash === "cb142cf3c2c10090eee5c5192533e3ac4ced22e6690fa98ead8017447a9d4db3") {
     document.getElementById("resume-modal").classList.remove("open");
     window.open("./assets/LAURENCE_KIM_SOFTWARE_RESUME_ONEPAGE_AI.docx.pdf");
   } else {
